@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BookitCasino - Games</title>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+</head>
+<body>
+  <div class="wrapper">
+    <main class="main">
+      <div class="container">
+        <a class="grid-item show-modal call-games" href="#" onclick="EditGame(1)">
+          <span class="btn">Weiterspielen!</span>
+        </a><br>
+        <a class="grid-item show-modal call-games" href="#" onclick="EditGame(2)">
+          <span class="btn">Weiterspielen!</span>
+        </a><br>
+        <a class="grid-item show-modal call-games" href="#" onclick="EditGame(3)">
+          <span class="btn">Weiterspielen!</span>
+        </a><br>
+        <a class="grid-item show-modal call-games" href="#" onclick="EditGame(4)">
+          <span class="btn">Weiterspielen!</span>
+        </a><br>
+        <a class="grid-item show-modal call-games" href="#" onclick="EditGame(5)">
+          <span class="btn">Weiterspielen!</span>
+        </a><br>
+        <a class="grid-item show-modal call-games" href="#" onclick="EditGame(6)">
+          <span class="btn">Weiterspielen!</span>
+        </a><br>
+        <a class="grid-item show-modal call-games" href="#" onclick="EditGame(7)">
+          <span class="btn">Weiterspielen!</span>
+        </a><br>
+        <a class="grid-item show-modal call-games" href="#" onclick="EditGame(8)">
+          <span class="btn">Weiterspielen!</span>
+        </a><br>
+      </div>
+    </main>
+  </div>
+
+  <div class="bg-modal-games"></div>
+  <div class="modal-games">
+    <a href="#" class="modal-games__close">
+      <svg width="30px" height="30px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg">
+        <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+          <g id="Close">
+            <rect id="Rectangle" fill-rule="nonzero" x="0" y="0" width="24" height="24">
+
+            </rect>
+            <line x1="16.9999" y1="7" x2="7.00001" y2="16.9999" id="Path" stroke="#0C0310" stroke-width="2" stroke-linecap="round">
+
+            </line>
+            <line x1="7.00006" y1="7" x2="17" y2="16.9999" id="Path" stroke="#0C0310" stroke-width="2" stroke-linecap="round">
+
+            </line>
+          </g>
+        </g>
+      </svg>
+    </a>
+    <p class="modal-games__title" id="nameGame"></p>
+    <div class="modal-games__iframe" id="IframeGame"></div>
+  </div>
+
+  <style>
+    .bg-modal-games {
+      position: fixed;
+      z-index: 99;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      height: 100%;
+      width: 100%;
+      background: #000;
+      opacity: 0;
+      pointer-events: none;
+    }
+    .modal-games {
+      position: fixed;
+      top:50%;
+      left:50%;
+      transform:translate(-50%, -50%);
+      background: #fff;
+      width: 100%;
+      box-sizing: border-box;
+      max-width: 700px;
+      padding: 15px;
+      z-index: 999;
+      opacity: 0;
+      pointer-events: none;
+    }
+    .modal-games__close {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      cursor: pointer;
+    }
+    .modal-games__title {
+      text-align: center;
+      margin: 0 0 15px 0;
+      color: #000;
+      font-weight: 700;
+      font-size: 20px;
+    }
+    .active-mod {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .active-mod-bg {
+      opacity: .7;
+      pointer-events: auto;
+    }
+  </style>
+
+  <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+  <script>
+
+    $('.call-games, .bg-modal-games, .modal-games__close').on('click', function (e) {
+      e.preventDefault();
+      $('.modal-games').toggleClass('active-mod');
+      $('.bg-modal-games').toggleClass('active-mod-bg');
+    });
+
+    $('.bg-modal-games, .modal-games__close').on('click', function (e) {
+      $('#IframeGame iframe').remove();
+    });
+
+
+    function EditGame(number){
+
+      let name = document.getElementById("nameGame");
+      let inframe = document.getElementById("IframeGame");
+
+      let _name = "";
+      let _inf = "";
+
+      switch (number){
+        case 1:
+          _name = "Dragonmaiden";
+          _inf = "https://asccw.playngonetwork.com/casino/ContainerLauncher?pid=2&gid=dragonmaiden&lang=en_GB&practice=1&channel=desktop&demo=2";
+          break;
+        case 2:
+          _name = "Thefacesoffreya";
+          _inf = "https://asccw.playngonetwork.com/casino/ContainerLauncher?pid=2&gid=thefacesoffreya&lang=en_GB&practice=1&channel=desktop&demo=2";
+          break;
+        case 3:
+          _name = "Vikingrunecraftbingo";
+          _inf = "https://asccw.playngonetwork.com/casino/ContainerLauncher?pid=2&gid=vikingrunecraftbingo&lang=en_GB&practice=1&channel=desktop&demo=2";
+          break;
+        case 4:
+          _name = "Animalmadness";
+          _inf = "https://asccw.playngonetwork.com/casino/ContainerLauncher?pid=2&gid=animalmadness&lang=en_GB&practice=1&channel=desktop&demo=2";
+          break;
+        case 5:
+          _name = "Minerdonkeytrouble";
+          _inf = "https://asccw.playngonetwork.com/casino/ContainerLauncher?pid=2&gid=minerdonkeytrouble&lang=en_GB&practice=1&channel=desktop&demo=2";
+          break;
+        case 6:
+          _name = "Firejoker";
+          _inf = "https://asccw.playngonetwork.com/casino/ContainerLauncher?pid=2&gid=firejoker&lang=en_GB&practice=1&channel=desktop&demo=2";
+          break;
+        case 7:
+          _name = "Firejokerfreeze";
+          _inf = "https://asccw.playngonetwork.com/casino/ContainerLauncher?pid=2&gid=firejokerfreeze&lang=en_GB&practice=1&channel=desktop&demo=2";
+          break;
+        case 8:
+          _name = "Boatbonanza";
+          _inf = "https://asccw.playngonetwork.com/casino/ContainerLauncher?pid=2&gid=boatbonanza&lang=en_GB&practice=1&channel=desktop&demo=2";
+          break;
+      }
+
+      name.innerHTML = _name;
+      inframe.innerHTML = "<iframe style=\"width: 100%; max-width: 100%; height: 400px; box-sizing: border-box;\" class=\"mfp-iframe\" src=\"" + _inf + "\"true\"></iframe>"
+
+    }
+  </script>
+</body>
+</html>
